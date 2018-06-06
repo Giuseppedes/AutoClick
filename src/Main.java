@@ -4,6 +4,7 @@ import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 
 public class Main {
 
@@ -82,6 +83,12 @@ public class Main {
 
             //riporto il mouse alla posizione iniziale
             robot.mouseMove((int)originalPointer.getX(),(int)originalPointer.getY());
+
+            //premo invio nel caso in cui venga visualizzato l'alert: "Video non terminato!"
+            Thread.sleep(500);
+
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
         }
 
         //aspetto X millisecondi e ripeto l'operazione
