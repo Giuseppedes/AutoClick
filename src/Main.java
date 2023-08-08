@@ -35,16 +35,8 @@ public class Main {
     Robot robot = new Robot();
 
 /*
-        System.out.println("Punta la progress bar");
-        Thread.sleep(2000);
-        System.out.println("3");
-        Thread.sleep(1000);
-        System.out.println("2");
-        Thread.sleep(1000);
-        System.out.println("1");
-        Thread.sleep(1000);
 
-        Point progressBarPosition = MouseInfo.getPointerInfo().getLocation();
+        Point progressBarPosition = getPointerLocation("Progress bar");
         xProgressBar = (int) progressBarPosition.getX();
         yProgressBar = (int) progressBarPosition.getY();
         progressBarColor = robot.getPixelColor(xProgressBar, yProgressBar);
@@ -60,46 +52,20 @@ public class Main {
         System.out.println("Post Shift: " + xProgressBar + " - "  + yProgressBar);
 */
 
-    System.out.println("Punta il pulsante");
-    Thread.sleep(2000);
-    System.out.println("3");
-    Thread.sleep(1000);
-    System.out.println("2");
-    Thread.sleep(1000);
-    System.out.println("1");
-    Thread.sleep(1000);
+    Point buttonPosition = getPointerLocation("Pulsante");
 
-    Point buttonPosition = MouseInfo.getPointerInfo().getLocation();
     xButton = (int) buttonPosition.getX();
     yButton = (int) buttonPosition.getY();
 
     System.out.println(xButton + " - "  + yButton);
 
-    System.out.println("rettangolo punto A");
-    Thread.sleep(2000);
-    System.out.println("3");
-    Thread.sleep(1000);
-    System.out.println("2");
-    Thread.sleep(1000);
-    System.out.println("1");
-    Thread.sleep(1000);
-
-    Point APosition = MouseInfo.getPointerInfo().getLocation();
+    Point APosition = getPointerLocation("rettangolo punto A");
     xA = (int) APosition.getX();
     yA = (int) APosition.getY();
 
     System.out.println(xA + " - "  + yA);
 
-    System.out.println("rettangolo punto B");
-    Thread.sleep(2000);
-    System.out.println("3");
-    Thread.sleep(1000);
-    System.out.println("2");
-    Thread.sleep(1000);
-    System.out.println("1");
-    Thread.sleep(1000);
-
-    Point BPosition = MouseInfo.getPointerInfo().getLocation();
+    Point BPosition = getPointerLocation("rettangolo punto B");
     xB = (int) BPosition.getX();
     yB = (int) BPosition.getY();
 
@@ -118,6 +84,19 @@ public class Main {
       index++;
     }
 
+  }
+
+  private static Point getPointerLocation(String description) throws InterruptedException {
+    System.out.println(description);
+    Thread.sleep(2000);
+    System.out.println("3");
+    Thread.sleep(1000);
+    System.out.println("2");
+    Thread.sleep(1000);
+    System.out.println("1");
+    Thread.sleep(1000);
+
+    return MouseInfo.getPointerInfo().getLocation();
   }
 
   private static void moveAndClick(Robot robot) throws InterruptedException {
